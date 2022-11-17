@@ -7,7 +7,9 @@ const PORT = '8080'
 const HOST = '127.0.0.1'
 
 app.use(express.urlencoded({ extended: false }), express.json())
-
+app.head('/api/greetings', (req,res,next)=>{
+    res.setHeader('Custom-Capability','true').send()
+})
 app.get('/api/greetings', (req, res, next) => {
     const name = req.query.name
     if (name !== undefined) {
