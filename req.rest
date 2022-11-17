@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:8080/api
+@accessToken = Bearer 50933b6c429544c92ba3e943de68bb672736fbccaedd507b8285ab324881ce313b2f0559a499451a7d8afa2725159ce4ed716e1d4dac57f80dd48dae9d95e4e9
+### Greetings endpoint, give a name and get a greeting
+GET {{baseUrl}}/greetings
+
+### Greet the server
+
+POST {{baseUrl}}/greetings
+Content-Type: application/json
+
+{
+    "from": "Nuthan",
+    "message": "Good morning!"
+}
+### Upload file
+// @prompt name
+// @prompt data
+PUT {{baseUrl}}/upload 
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+    "name": {{name}},
+    "data":{{data}}
+}
+
+###
+DELETE {{baseUrl}}/remove HTTP/1.1
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+    "name":"x"
+}
+
+###
+HEAD http://localhost:8080/api/greetings
